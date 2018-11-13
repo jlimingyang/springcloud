@@ -10,12 +10,17 @@ import org.springframework.context.annotation.Bean;
 @SpringCloudApplication
 public class ZuulServerApplication {
 
-	public static void main(String[] args) {
-		 new SpringApplicationBuilder(ZuulServerApplication.class).web(true).run(args);
-	}
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(ZuulServerApplication.class).web(true).run(args);
+    }
 
-	@Bean
-	public ZuulFilterConfig zuulFilterConfig(){
-		return new ZuulFilterConfig();
-	}
+    @Bean
+    public ZuulFilterConfig zuulFilterConfig() {
+        return new ZuulFilterConfig();
+    }
+
+    @Bean
+    public ZuulExceptionFilterConfig zuulExceptionFilterConfig() {
+        return new ZuulExceptionFilterConfig();
+    }
 }

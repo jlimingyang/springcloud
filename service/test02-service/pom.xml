@@ -6,12 +6,19 @@
 
     <parent>
         <groupId>com.item1024</groupId>
-        <artifactId>controller</artifactId>
+        <artifactId>service</artifactId>
         <version>1.0.0</version>
     </parent>
 
     <groupId>com.item1024</groupId>
-    <artifactId>test-controller</artifactId>
-
-    
+    <artifactId>test02-service</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <finalName>test</finalName>
+    </build>
 </project>

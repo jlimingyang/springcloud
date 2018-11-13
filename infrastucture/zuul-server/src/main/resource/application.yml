@@ -16,4 +16,4 @@ zuul:
   routes:
     test-api:
       path: /test-api/**  #路由关键字
-      serviceId: test-controller  #服务名称
+      serviceId: test02-service  #服务名称
