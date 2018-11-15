@@ -22,3 +22,10 @@ feign:
 spring:
   application:
     name: test-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: lmy
+    password: 165177
+    virtual-host: testHost
+

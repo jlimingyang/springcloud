@@ -26,7 +26,13 @@ management:
   security:
     enabled: false
 server:
-  port: 8080
+  port: 17000
 spring:
   application:
-    name: test02-service
+    name: mq-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: lmy
+    password: 165177
+    virtual-host: testHost

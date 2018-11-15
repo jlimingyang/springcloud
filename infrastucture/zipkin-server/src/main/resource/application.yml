@@ -1,8 +1,8 @@
 server:
-  port: 8888
+  port: 18888
 spring:
   application:
-    name: zuul-server
+    name: zipkin-server
 eureka:
   client:
     service-url:
@@ -12,11 +12,3 @@ eureka:
   server:
     eviction-interval-timer-in-ms: 10000
     enable-self-preservation: false
-zuul:
-  routes:
-    test-api:
-      path: /test-api/**  #路由关键字
-      serviceId: test02-service  #服务名称
-    MQ:
-      path: /MQ/**
-      serviceId: mq-service

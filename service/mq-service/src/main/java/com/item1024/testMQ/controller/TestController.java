@@ -1,26 +1,31 @@
-package com.item1024.test.controller;
+package com.item1024.testMQ.controller;
 
-import com.item1024.test.feignClient.TestServiceClient;
 import lombok.extern.slf4j.Slf4j;
+import mjson.Json;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
-@RequestMapping("/testController")
+@RequestMapping("/MQController")
 @Slf4j
 public class TestController {
 
     @Autowired
-    private TestServiceClient testServiceClient;
+    private AmqpTemplate amqpTemplate;
 
     @GetMapping("/one")
-    public String testOne(@RequestParam("a") String a){
-        log.info("test:{}",a);
-        String res = testServiceClient.testOne(a);
-        log.info("res:{}",res);
-        return res;
+    public void testOne(@RequestParam("msg") String msg) throws InterruptedException {
+       log.info("arg:{}",msg);
+        Json json = Json.object().set("a","aaaaa").set("b","bbbbbb");
+        amqpTemplate.convertAndSend("test",json.toString());
     }
 }
