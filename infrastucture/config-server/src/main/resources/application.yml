@@ -1,0 +1,19 @@
+server:
+  port: 9988
+spring:
+  cloud:
+    config:
+      server:
+        git:
+#        众信泰富
+#          uri: http://10.0.66.60/zxtf/b2c-config-repo.git
+#          username: root
+#          password: zxtfzxtf123
+          uri: http://172.16.12.187:8090/zxtf/b2c-config-repository.git
+          username: liumougang
+          password: abc123def
+          search-paths: '/config-repo/{profile}'
+          # 修改默认分支到dev
+          default-label: dev
+  application:
+    name: config-server

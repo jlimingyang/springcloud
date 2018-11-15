@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: zuul-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1111/eureka/
+  instance:
+    prefer-ip-address: true
+  server:
+    eviction-interval-timer-in-ms: 10000
+    enable-self-preservation: false
+zuul:
+  routes:
+    test-api:
+      path: /test-api/**  #路由关键字
+      serviceId: test02-service  #服务名称
+    MQ:
+      path: /MQ/**
+      serviceId: mq-service
